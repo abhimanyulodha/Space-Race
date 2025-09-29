@@ -590,26 +590,26 @@
     <div id="rules-modal" class="modal fixed inset-0 bg-black/60 flex items-center justify-center p-4 opacity-0 invisible z-50 backdrop-blur-sm">
         <div class="modal-content w-full max-w-lg themed-modal p-6 transform scale-95 -translate-y-4">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-3xl font-bold" style="font-family: 'Pacifico', cursive; color: var(--accent);">How to Play</h2>
+                <h2 class="text-3xl font-bold" style="font-family: 'Pacifico', cursive; color: var(--accent);">How to Play Alloha - Space Race</h2>
                 <button id="close-rules-btn" class="w-10 h-10 rounded-full text-xl flex items-center justify-center font-bold">×</button>
             </div>
             <div class="space-y-4 text-sm max-h-[70vh] overflow-y-auto pr-2" style="color: var(--text-secondary)">
                  <h3 class="font-bold text-lg" style="color: var(--accent);">The Objective</h3>
-                 <p>Get the highest score by placing items on the grid to create sequences of 3 or more identical items in a line (rows or columns).</p>
+                 <p>Get the highest score by placing Allohas on the grid to create sequences of 3 or more identical Allohas in a line (rows or columns).</p>
                  <h3 class="font-bold text-lg" style="color: var(--accent);">Gameplay</h3>
-                 <ol class="list-decimal list-inside space-y-1"><li>Choose your starting item.</li><li>Click "Roll Dice" to get two new items.</li><li>Place both items in any two empty, adjacent (not diagonal) squares.</li></ol>
+                 <ol class="list-decimal list-inside space-y-1"><li>Choose your starting Alloha.</li><li>Click "Roll Dice" to get two new Allohas.</li><li>Place both Allohas in any two empty, adjacent (not diagonal) squares.</li></ol>
                  <h3 class="font-bold text-lg" style="color: var(--accent);">Special Powers</h3>
                  <p>Use one of three powerful, single-use abilities per game.</p>
-                 <ul class="list-disc list-inside space-y-1"><li><b>Past Lives:</b> Undoes your last completed move.</li><li><b>Bomb Bae:</b> Click to activate, then click a stuck block (💣) to fill it with a random item.</li><li><b>No Return:</b> Click to activate, then click any item on the grid to swap it.</li></ul>
+                 <ul class="list-disc list-inside space-y-1"><li><b>Past Lives:</b> Undoes your last completed move.</li><li><b>Bomb Bae:</b> Click to activate, then click a stuck block (💣) to fill it with a random Alloha.</li><li><b>No Return:</b> Click to activate, then click any Alloha on the grid to swap it.</li></ul>
                  <h3 class="font-bold text-lg" style="color: var(--accent);">Special Blocks</h3>
                  <ul class="list-disc list-inside space-y-1">
-                    <li><b>Wild Card (💎):</b> A rare treasure! This special piece acts as any item and can complete any line. Appears once per game.</li>
+                    <li><b>Wild Card (💎):</b> A rare treasure! This special piece acts as any Alloha and can complete any line. Appears once per game.</li>
                     <li><b>Cursed Block (☠️):</b> An immovable obstacle! This block cannot be removed by Bomb Bae or swapped with No Return. Appears once per game.</li>
                  </ul>
                  <h3 class="font-bold text-lg" style="color: var(--accent);">Scoring</h3>
                  <ul class="list-disc list-inside space-y-1"><li><b>3 in a line:</b> 3 points</li><li><b>4 in a line:</b> 8 points</li><li><b>5 in a line:</b> 10 points</li><li><b>6 in a line:</b> 14 points</li><li><b>7 in a line:</b> 20 points</li>
                  <li><b>Twinning Bonus:</b> Scores on the 4th row or 4th column are doubled!</li>
-                 <li><b>Grid Bonus:</b> 2x2, 3x3, etc. grids of the same item give bonus points (size * size).</li>
+                 <li><b>Grid Bonus:</b> 2x2, 3x3, etc. grids of the same Alloha give bonus points (size * size).</li>
                  <li><b>Penalty:</b> A row or column that can no longer form a 3-symbol sequence gets a -5 penalty. A "dead" line on the twinning gets a -10 penalty.</li></ul>
             </div>
         </div>
@@ -637,7 +637,7 @@
     
     <div id="exchange-modal" class="modal fixed inset-0 bg-black/60 flex items-center justify-center p-4 opacity-0 invisible z-50 backdrop-blur-sm">
         <div class="modal-content w-full max-w-sm text-center themed-modal p-6 transform scale-95 -translate-y-4">
-            <h2 class="text-xl font-bold mb-4" style="color: var(--accent);">Choose a new Item</h2>
+            <h2 class="text-xl font-bold mb-4" style="color: var(--accent);">Choose a new Alloha</h2>
             <div id="exchange-options" class="grid grid-cols-3 gap-4"></div>
         </div>
     </div>
@@ -651,10 +651,10 @@
         
         class Game {
             constructor() {
-                this.SPACE_SYMBOLS = { 'Rocket': '🚀', 'Planet': '🪐', 'Earth': '🌍', 'Astronaut': '👩‍🚀', 'Satellite': '🛰️', 'Alien': '👽' };
+                this.SPACE_SYMBOLS = { 'Rocket': '🚀', 'Planet': '🪐', 'Earth': '🌍', 'Astronaut': '🌔', 'Satellite': '🛰️', 'Alien': '👽' };
                 this.SPECIAL_SYMBOLS = { 'WILD': '💎', 'CURSED': '☠️' };
                 this.SYMBOLS = Object.values(this.SPACE_SYMBOLS);
-                this.SYMBOL_COLORS = { '🚀': 'text-orange-400', '🪐': 'text-yellow-400', '🌍': 'text-cyan-300', '👩‍🚀': 'text-slate-300', '🛰️': 'text-gray-400', '👽': 'text-lime-400', '💎': 'text-sky-400' };
+                this.SYMBOL_COLORS = { '🚀': 'text-orange-400', '🪐': 'text-yellow-400', '🌍': 'text-cyan-300', '🌔': 'text-slate-300', '🛰️': 'text-gray-400', '👽': 'text-lime-400', '💎': 'text-sky-400' };
                 this.SCORING_RULES = { 7: 20, 6: 14, 5: 10, 4: 8, 3: 3 };
                 this.GRID_SIZE = 7; this.MAX_TURNS = 24; this.CROSS_MULTIPLIER = 2; this.LINE_DEATH_PENALTY = -5; this.CROSS_DEATH_PENALTY = -10; this.STUCK_BLOCK_PENALTY = -1; this.MIN_SEQUENCE_LENGTH = 3;
                 
@@ -895,7 +895,7 @@
 
             renderPreGameControls() {
                 const container = document.createElement('div'); container.className = 'w-full flex flex-col items-center';
-                container.innerHTML = `<h2 class="text-base lg:text-lg font-semibold text-center mb-4 uppercase tracking-wider" style="color: var(--text);">CHOOSE YOUR ITEM</h2>`;
+                container.innerHTML = `<h2 class="text-base lg:text-lg font-semibold text-center mb-4 uppercase tracking-wider" style="color: var(--text);">CHOOSE YOUR ALLOHA</h2>`;
                 const selector = document.createElement('div'); selector.className = 'grid grid-cols-3 gap-2 lg:gap-4';
                 this.SYMBOLS.forEach((symbol) => {
                     const btn = document.createElement('button');
